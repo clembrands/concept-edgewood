@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Edgewood Surgical · 3 Home Page Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F1E8;
+    --ink: #14140F;
+    --body: #4A453E;
+    --mute: #8B8378;
+    --hair: rgba(20,20,15,0.12);
+    --green: #1B6E3F;
+    --sans: "Inter Tight", -apple-system, sans-serif;
+    --serif: "Instrument Serif", Georgia, serif;
+    --mono: "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--body);
+    -webkit-font-smoothing: antialiased;
+    padding: 0 0 120px;
+    min-height: 100vh;
+  }
+
+  /* Studio bar */
+  .studio-bar {
+    background: #1A1B1F;
+    color: #B8B7B0;
+    padding: 14px 0;
+    margin-bottom: 80px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .studio-bar .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .studio-bar .studio-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .studio-bar .studio-logo img {
+    height: 22px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+  .studio-bar .studio-logo .divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.2);
+  }
+  .studio-bar .studio-logo .label {
+    color: rgba(255,255,255,0.5);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+  }
+  .studio-bar .meta-right {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 10.5px;
+  }
+  .studio-bar .meta-right .live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+  }
+  .studio-bar .meta-right .live::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #6FB683;
+    border-radius: 50%;
+  }
+
+  .sign-off {
+    margin-top: 80px;
+    padding: 40px 0;
+    border-top: 1px solid var(--hair);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .sign-off .left { display: flex; align-items: center; gap: 18px; }
+  .sign-off .left img { height: 28px; width: auto; }
+  .sign-off .left .who {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    line-height: 1.7;
+  }
+  .sign-off .left .who strong { color: var(--ink); font-weight: 500; }
+  .sign-off .right {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 56px; }
+  a { color: inherit; text-decoration: none; }
+  .head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--hair);
+    margin-bottom: 64px;
+    gap: 56px;
+  }
+  .head-left img.logo { height: 56px; width: auto; margin-bottom: 36px; }
+  .head h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 84px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .head h1 em { font-style: italic; color: var(--green); }
+  .head .sub {
+    font-size: 17px;
+    color: var(--body);
+    max-width: 560px;
+    line-height: 1.5;
+  }
+  .head-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .head-meta strong { color: var(--ink); font-weight: 500; }
+
+  .directions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .dir {
+    background: #fff;
+    border: 1px solid var(--hair);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .dir:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(20,20,15,0.10);
+  }
+  .dir .preview {
+    aspect-ratio: 5/3.6;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--hair);
+  }
+  .dir .preview .mini { width: 100%; height: 100%; }
+  .dir .body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .dir .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .dir h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .dir h2 em { font-style: italic; }
+  .dir p {
+    font-size: 14.5px;
+    color: var(--body);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .dir .palette {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .dir .palette .sw {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--hair);
+  }
+  .dir .open {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: background .2s;
+  }
+  .dir .open:hover { background: var(--green); }
+
+  /* Mini previews — SVG abstractions */
+  /* D1 — Quiet Editorial */
+  .preview.d1 { background: #FAFAF7; }
+  .preview.d1 .strip { background: #14140F; height: 22px; }
+  .preview.d1 .nav-row { background: #FAFAF7; border-bottom: 1px solid rgba(20,20,15,0.1); height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  .preview.d1 .nav-row .logo { width: 80px; height: 18px; background: #14140F; border-radius: 2px; }
+  .preview.d1 .nav-row .links { display: flex; gap: 8px; }
+  .preview.d1 .nav-row .links span { width: 24px; height: 4px; background: rgba(20,20,15,0.3); border-radius: 2px; }
+  .preview.d1 .nav-row .cta { width: 50px; height: 14px; border: 1px solid #14140F; border-radius: 999px; }
+  .preview.d1 .body-d1 { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; padding: 28px 24px; height: calc(100% - 66px); }
+  .preview.d1 .h-text { display: flex; flex-direction: column; gap: 8px; }
+  .preview.d1 .h-text .line { height: 14px; background: #14140F; border-radius: 2px; }
+  .preview.d1 .h-text .line.short { width: 60%; }
+  .preview.d1 .h-text .line.italic { background: #1B6E3F; font-style: italic; }
+  .preview.d1 .h-text .meta { height: 4px; background: rgba(20,20,15,0.3); width: 40%; margin-bottom: 8px; }
+  .preview.d1 .h-text .lede { height: 4px; background: rgba(20,20,15,0.25); margin-top: 12px; }
+  .preview.d1 .h-text .lede.s { width: 80%; }
+  .preview.d1 .h-text .lede.t { width: 70%; }
+  .preview.d1 .photo {
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 4px, rgba(20,20,15,0.08) 4px, rgba(20,20,15,0.08) 5px),
+                #F2EFE7;
+    border-radius: 2px;
+  }
+
+  /* D2 — Modern Trust */
+  .preview.d2 { background: #FFFFFF; }
+  .preview.d2 .util { background: #0F1411; color: rgba(255,255,255,0.78); font-size: 8px; font-family: var(--mono); padding: 6px 24px; display: flex; justify-content: space-between; }
+  .preview.d2 .util .phone { color: #fff; }
+  .preview.d2 .util .billpay { background: #DCE9DF; color: #0F1411; padding: 2px 8px; border-radius: 999px; }
+  .preview.d2 .nav { background: #fff; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid #E8EAE6; }
+  .preview.d2 .nav .logo { width: 70px; height: 14px; background: #1B6E3F; border-radius: 2px; }
+  .preview.d2 .nav .links { display: flex; gap: 8px; }
+  .preview.d2 .nav .links span { width: 22px; height: 3px; background: rgba(15,20,17,0.4); border-radius: 2px; }
+  .preview.d2 .nav .cta { width: 56px; height: 16px; background: #1B6E3F; border-radius: 999px; }
+  .preview.d2 .hero-d2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100% - 60px);
+  }
+  .preview.d2 .h-l {
+    background: #1B6E3F;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+  }
+  .preview.d2 .h-l .chap { color: #DCE9DF; font-family: var(--mono); font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+  .preview.d2 .h-l .head1 { height: 16px; background: #fff; border-radius: 2px; }
+  .preview.d2 .h-l .head1.short { width: 60%; }
+  .preview.d2 .h-l .sub { height: 3px; background: rgba(255,255,255,0.5); margin-top: 12px; }
+  .preview.d2 .h-l .sub.s { width: 70%; }
+  .preview.d2 .h-l .btn { height: 14px; background: #fff; border-radius: 999px; width: 50%; margin-top: 14px; }
+  .preview.d2 .h-r {
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 4px, rgba(27,110,63,0.1) 4px, rgba(27,110,63,0.1) 5px), #F0F6F2;
+    position: relative;
+  }
+  .preview.d2 .h-r .tag-pill { position: absolute; top: 12px; left: 12px; background: #fff; border: 1px solid #E8EAE6; border-radius: 999px; padding: 3px 8px; font-family: var(--mono); font-size: 6px; letter-spacing: 0.14em; text-transform: uppercase; color: #0F1411; }
+
+  /* D3 — Modern Sage */
+  .preview.d3 { background: #EEE7D5; }
+  .preview.d3 .util { background: #2A2520; color: #EEE7D5; font-size: 8px; font-family: var(--mono); padding: 6px 24px; display: flex; justify-content: space-between; }
+  .preview.d3 .util .phone { color: #D9E2D6; }
+  .preview.d3 .util .billpay { background: #D9E2D6; color: #2A2520; padding: 2px 8px; border-radius: 999px; }
+  .preview.d3 .nav { background: rgba(238,231,213,0.94); height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid rgba(42,37,32,0.07); }
+  .preview.d3 .nav .logo { width: 70px; height: 14px; background: #2A2520; border-radius: 2px; }
+  .preview.d3 .nav .links { display: flex; gap: 8px; }
+  .preview.d3 .nav .links span { width: 22px; height: 3px; background: rgba(42,37,32,0.4); border-radius: 2px; }
+  .preview.d3 .nav .cta { width: 56px; height: 16px; background: #2A2520; border-radius: 999px; }
+  .preview.d3 .hero-d3 {
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    height: calc(100% - 60px - 24px);
+    align-items: end;
+  }
+  .preview.d3 .h-big {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .preview.d3 .h-big .l { height: 24px; background: #2A2520; border-radius: 3px; }
+  .preview.d3 .h-big .l.italic { background: #3F5A3D; width: 70%; font-style: italic; }
+  .preview.d3 .h-big .l.short { width: 50%; }
+  .preview.d3 .h-side .photo-card {
+    background: repeating-linear-gradient(45deg, transparent 0, transparent 4px, rgba(42,37,32,0.08) 4px, rgba(42,37,32,0.08) 5px), #E4DAC2;
+    height: 110px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .preview.d3 .h-side .btn { height: 14px; background: #2A2520; border-radius: 999px; width: 80%; }
+  .preview.d3 .marquee {
+    background: #3F5A3D;
+    color: #EEE7D5;
+    height: 24px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 9px;
+  }
+
+  .footer-note {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hair);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-note h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .footer-note p { font-size: 14px; color: var(--body); max-width: 460px; }
+  .footer-note .right {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 960px) {
+    .directions { grid-template-columns: 1fr; }
+    .head { grid-template-columns: 1fr; }
+    .head-meta { text-align: left; }
+    .wrap { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="studio-bar">
+  <div class="wrap">
+    <div class="studio-logo">
+      <img src="assets/clem-logo.png" alt="Clem.">
+      <span class="divider"></span>
+      <span class="label">Client Portal · Concept Review</span>
+    </div>
+    <div class="meta-right">
+      <span>Edgewood Surgical Hospital</span>
+      <span>Round 01</span>
+      <span class="live">Live</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <div class="head-left">
+      <img class="logo" src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital">
+      <h1>Three home page<br>directions, <em>side by side.</em></h1>
+      <p class="sub">Each is a full long-scroll home page built around your intake form: the same content architecture, three distinct aesthetics. Click into any one to scroll through the full design.</p>
+    </div>
+    <div class="head-meta">
+      <strong>Client</strong> · Edgewood Surgical Hospital<br>
+      <strong>Round</strong> · 01 · Concept exploration<br>
+      <strong>Format</strong> · Desktop long-scroll<br>
+      <strong>Date</strong> · May 2026
+    </div>
+  </div>
+
+  <div class="directions">
+
+    <!-- D1 -->
+    <div class="dir">
+      <div class="preview d1">
+        <div class="strip"></div>
+        <div class="nav-row">
+          <div class="logo"></div>
+          <div class="links"><span></span><span></span><span></span><span></span></div>
+          <div class="cta"></div>
+        </div>
+        <div class="body-d1">
+          <div class="h-text">
+            <div class="meta"></div>
+            <div class="line"></div>
+            <div class="line italic short"></div>
+            <div class="lede s"></div>
+            <div class="lede t"></div>
+          </div>
+          <div class="photo"></div>
+        </div>
+      </div>
+      <div class="body">
+        <span class="label">Direction 01 · Recommended starting point</span>
+        <h2>Quiet <em>Editorial</em></h2>
+        <p>Warm white, ink, a single restrained green accent. Generous whitespace, editorial type hierarchy, and quiet authority. Closest in feel to archorthospine, but more elevated. The safest, most credibility-forward pick.</p>
+        <div class="palette">
+          <span class="sw" style="background:#FAFAF7"></span>
+          <span class="sw" style="background:#14140F"></span>
+          <span class="sw" style="background:#1B6E3F"></span>
+          <span class="sw" style="background:#F2EFE7"></span>
+        </div>
+        <a class="open" href="01 Quiet Editorial.html"><span>Open full design</span><span>→</span></a>
+      </div>
+    </div>
+
+    <!-- D2 -->
+    <div class="dir">
+      <div class="preview d2">
+        <div class="util"><span>est. 2001</span><span><span class="phone">(XXX) XXX-XXXX </span><span class="billpay">Bill Pay</span></span></div>
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="links"><span></span><span></span><span></span><span></span></div>
+          <div class="cta"></div>
+        </div>
+        <div class="hero-d2">
+          <div class="h-l">
+            <div class="chap">· PIONEERING SINCE 2001</div>
+            <div class="head1"></div>
+            <div class="head1"></div>
+            <div class="head1 short"></div>
+            <div class="sub"></div>
+            <div class="sub s"></div>
+            <div class="btn"></div>
+          </div>
+          <div class="h-r"><span class="tag-pill">HERO · FACILITY</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <span class="label">Direction 02 · Brand-forward / Confident</span>
+        <h2>Modern <em>Trust</em></h2>
+        <p>Bright white with your brand green as a true protagonist, not just an accent. Confident geometric sans, split hero with a green panel, clean color-blocking throughout. Reads as modern, clinical-precise, and unmistakably Edgewood. The most overtly on-brand of the three.</p>
+        <div class="palette">
+          <span class="sw" style="background:#FFFFFF"></span>
+          <span class="sw" style="background:#1B6E3F"></span>
+          <span class="sw" style="background:#0F4D2A"></span>
+          <span class="sw" style="background:#0F1411"></span>
+        </div>
+        <a class="open" href="02 Modern Trust.html"><span>Open full design</span><span>→</span></a>
+      </div>
+    </div>
+
+    <!-- D3 -->
+    <div class="dir">
+      <div class="preview d3">
+        <div class="util"><span>est. 2001</span><span><span class="phone">(XXX) XXX-XXXX </span><span class="billpay">Bill Pay</span></span></div>
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="links"><span></span><span></span><span></span><span></span></div>
+          <div class="cta"></div>
+        </div>
+        <div class="hero-d3">
+          <div class="h-big">
+            <div class="l"></div>
+            <div class="l short"></div>
+            <div class="l italic"></div>
+          </div>
+          <div class="h-side">
+            <div class="photo-card"></div>
+            <div class="btn"></div>
+          </div>
+        </div>
+        <div class="marquee">✦ lowest infection rates · private rooms · since 2001 ✦</div>
+      </div>
+      <div class="body">
+        <span class="label">Direction 03 · Modern + warm</span>
+        <h2>Modern <em>Sage</em></h2>
+        <p>Cream, warm brown, sage derived from your logo green. Asymmetric magazine-style layout, bold modern display type, italic accents. Feels like "a caring home" with character. Most design-forward of the three.</p>
+        <div class="palette">
+          <span class="sw" style="background:#EEE7D5"></span>
+          <span class="sw" style="background:#2A2520"></span>
+          <span class="sw" style="background:#6F8B6B"></span>
+          <span class="sw" style="background:#B6694A"></span>
+        </div>
+        <a class="open" href="03 Modern Sage.html"><span>Open full design</span><span>→</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <div>
+      <h3>How to use this</h3>
+      <p>Each direction is a complete home page. All three share the same content blocks (hero → featured specialties → other specialties → difference → testimonials → insurances → locations → closer → footer) so you can compare apples-to-apples. Photography is placeholder-stripe + caption; drop in real shots and the design holds.</p></p>
+    </div>
+    <div class="right">
+      Placeholders to swap<br>
+      <strong>Phone</strong> · (XXX) XXX-XXXX<br>
+      <strong>Photography</strong> · 6–8 facility/patient shots<br>
+      <strong>Real testimonials</strong> · Currently illustrative<br>
+      <strong>Insurance list</strong> · Confirm carriers
+    </div>
+  </div>
+
+  <div class="sign-off">
+    <div class="left">
+      <img src="assets/clem-logo.png" alt="Clem.">
+      <div class="who">
+        <strong>Designed by Clem.</strong><br>
+        Concept exploration · Round 01 · May 2026
+      </div>
+    </div>
+    <div class="right">
+      © 2026 Clem Brands · Prepared for Edgewood Surgical Hospital
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

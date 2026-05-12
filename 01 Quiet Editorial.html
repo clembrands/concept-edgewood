@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Edgewood Surgical Hospital — Quiet Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-warm: #F2EFE7;
+    --ink: #14140F;
+    --body: #44423D;
+    --mute: #8B8A84;
+    --hair: #E2DFD7;
+    --green: #1B6E3F;
+    --green-deep: #134F2D;
+    --green-tint: #EEF3EC;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Geist", "Söhne", -apple-system, "Helvetica Neue", sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 500;
+  }
+  .eyebrow.muted { color: var(--mute); }
+
+  /* ---------- Utility bar ---------- */
+  .util {
+    background: var(--ink);
+    color: #C9C7BF;
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+  }
+  .util .wrap { display: flex; justify-content: space-between; align-items: center; height: 38px; }
+  .util-left { display: flex; gap: 28px; align-items: center; }
+  .util-right { display: flex; gap: 22px; align-items: center; }
+  .util a { color: #C9C7BF; transition: color .2s; }
+  .util a:hover { color: #fff; }
+  .util .phone { color: #fff; font-family: var(--mono); letter-spacing: 0.02em; }
+  .util .phone::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 8px; vertical-align: 2px; }
+  .util .billpay { color: #fff; font-weight: 500; }
+  .util .billpay::after { content: " →"; }
+  .util-tag { color: #8a877e; font-size: 11px; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* ---------- Nav ---------- */
+  nav.main {
+    background: var(--bg);
+    border-bottom: 1px solid var(--hair);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(250,250,247,0.92);
+  }
+  nav.main .wrap { display: flex; align-items: center; justify-content: space-between; height: 82px; }
+  .logo { display: flex; align-items: center; gap: 0; }
+  .logo img { height: 44px; width: auto; }
+  .navlinks { display: flex; gap: 38px; align-items: center; }
+  .navlinks a { font-size: 14.5px; color: var(--ink); font-weight: 400; transition: color .15s; position: relative; }
+  .navlinks a:hover { color: var(--green); }
+  .navlinks a.has-caret::after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid var(--mute);
+    border-bottom: 1px solid var(--mute);
+    transform: rotate(45deg);
+    margin-left: 6px;
+    vertical-align: 3px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 22px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 999px;
+    transition: all .2s;
+  }
+  .nav-cta:hover { background: var(--ink); color: #fff; }
+  .nav-cta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 80px 0 100px;
+    border-bottom: 1px solid var(--hair);
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 80px; align-items: end; }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 56px;
+    align-items: center;
+    color: var(--mute);
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero-meta .sep { width: 24px; height: 1px; background: var(--hair); }
+  .hero h1 {
+    font-size: clamp(48px, 6vw, 92px);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+  }
+  .hero h1 em { font-style: italic; color: var(--green-deep); font-weight: 400; }
+  .hero p.lede {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--body);
+    max-width: 520px;
+    margin-bottom: 44px;
+  }
+  .hero-ctas { display: flex; gap: 14px; align-items: center; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: var(--green-deep); }
+  .btn-ghost { color: var(--ink); border: 1px solid var(--hair); background: transparent; }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn .arrow { transition: transform .2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Photo placeholder */
+  .photo {
+    position: relative;
+    background: var(--bg-warm);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .photo svg.stripes { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; }
+  .photo .photo-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: rgba(250,250,247,0.94);
+    padding: 6px 10px;
+    border-radius: 2px;
+  }
+  .photo .photo-num {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+  }
+  .hero-photo { aspect-ratio: 4 / 5; }
+
+  /* Hero stats */
+  .hero-stats {
+    grid-column: 1 / -1;
+    margin-top: 80px;
+    border-top: 1px solid var(--hair);
+    padding-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .hero-stats .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-stats .stat .num {
+    font-family: var(--serif);
+    font-size: 44px;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-stats .stat .num sup { font-size: 18px; vertical-align: top; margin-left: 2px; }
+  .hero-stats .stat .label { font-size: 13px; color: var(--body); line-height: 1.4; max-width: 220px; }
+
+  /* ---------- Featured specialty blocks ---------- */
+  .featured-section { padding: 120px 0 80px; }
+  .featured-header {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: baseline;
+    margin-bottom: 80px;
+  }
+  .featured-header h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    letter-spacing: -0.022em;
+  }
+  .featured-header p { font-size: 17px; color: var(--body); max-width: 560px; }
+
+  .featured-block {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .featured-block:nth-child(even) { grid-template-columns: 1.1fr 1fr; }
+  .featured-block:nth-child(even) .featured-photo { order: -1; }
+  .featured-photo { aspect-ratio: 5/4; }
+  .featured-content .eyebrow { display: block; margin-bottom: 22px; }
+  .featured-content h3 {
+    font-size: clamp(32px, 3.6vw, 48px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .featured-content p { font-size: 16.5px; line-height: 1.6; margin-bottom: 28px; max-width: 520px; }
+  .featured-list { list-style: none; margin: 24px 0 32px; }
+  .featured-list li {
+    padding: 14px 0;
+    border-top: 1px solid var(--hair);
+    font-size: 15px;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .featured-list li:last-child { border-bottom: 1px solid var(--hair); }
+  .featured-list li .sub { color: var(--mute); font-size: 13px; font-family: var(--mono); letter-spacing: 0.05em; }
+  .arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--green-deep);
+    font-weight: 500;
+    font-size: 14.5px;
+    border-bottom: 1px solid var(--green-deep);
+    padding-bottom: 3px;
+    transition: gap .2s;
+  }
+  .arrow-link:hover { gap: 14px; }
+
+  /* ---------- Specialties grid (secondary) ---------- */
+  .specialties-grid-section { padding: 60px 0 120px; }
+  .grid-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--hair); }
+  .grid-header h3 { font-size: 28px; font-weight: 400; }
+  .grid-header .meta { font-family: var(--mono); font-size: 12px; color: var(--mute); letter-spacing: 0.1em; text-transform: uppercase; }
+  .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--hair); }
+  .spec-card {
+    padding: 36px 32px 36px 0;
+    border-bottom: 1px solid var(--hair);
+    border-right: 1px solid var(--hair);
+    padding-left: 32px;
+    transition: background .2s;
+    cursor: pointer;
+    position: relative;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .spec-card:nth-child(3n) { border-right: none; }
+  .spec-card:hover { background: var(--green-tint); }
+  .spec-card .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+  }
+  .spec-card h4 {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 24px 0 12px;
+    letter-spacing: -0.015em;
+  }
+  .spec-card p { font-size: 14.5px; color: var(--body); line-height: 1.5; }
+  .spec-card .arrow-corner {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    color: var(--mute);
+    transition: color .2s;
+  }
+  .spec-card:hover .arrow-corner { color: var(--green-deep); }
+
+  /* ---------- The Edgewood Difference ---------- */
+  .difference {
+    background: var(--ink);
+    color: #C9C7BF;
+    padding: 120px 0;
+  }
+  .difference h2 { color: #fff; font-size: clamp(40px, 5vw, 72px); font-weight: 300; letter-spacing: -0.025em; margin-bottom: 24px; max-width: 900px; }
+  .difference h2 em { color: #8DBF9F; font-style: italic; }
+  .difference .lede { color: #C9C7BF; font-size: 18px; max-width: 620px; margin-bottom: 80px; }
+  .difference .eyebrow { color: #8DBF9F; margin-bottom: 28px; display: block; }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid #2A2A24;
+  }
+  .diff-cell {
+    padding: 40px 28px 40px 0;
+    border-right: 1px solid #2A2A24;
+    padding-left: 28px;
+  }
+  .diff-cell:nth-child(4n) { border-right: none; }
+  .diff-cell:first-child { padding-left: 0; }
+  .diff-cell .big {
+    font-family: var(--serif);
+    font-size: 56px;
+    line-height: 1;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+  .diff-cell .big sup { font-size: 22px; vertical-align: top; margin-left: 2px; color: #8DBF9F; }
+  .diff-cell h4 { color: #fff; font-size: 18px; font-weight: 500; font-family: var(--sans); margin-bottom: 8px; letter-spacing: 0; }
+  .diff-cell p { font-size: 14px; line-height: 1.5; color: #9C9A91; }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials { padding: 120px 0; background: var(--bg-warm); }
+  .test-header { margin-bottom: 64px; }
+  .test-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; letter-spacing: -0.022em; max-width: 800px; margin-top: 16px; }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .test-card {
+    background: var(--bg);
+    padding: 40px 32px;
+    border: 1px solid var(--hair);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .test-card .quote-mark {
+    font-family: var(--serif);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--green);
+    height: 24px;
+  }
+  .test-card blockquote {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .test-card .attrib { display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px; border-top: 1px solid var(--hair); }
+  .test-card .attrib .who { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .test-card .attrib .what { font-size: 12px; color: var(--mute); font-family: var(--mono); letter-spacing: 0.05em; }
+  .test-card .stars { display: flex; gap: 2px; }
+  .test-card .stars span { color: var(--green); font-size: 14px; }
+
+  /* ---------- Insurances ---------- */
+  .insurances { padding: 100px 0; border-bottom: 1px solid var(--hair); }
+  .ins-header { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; margin-bottom: 56px; align-items: end; }
+  .ins-header h2 { font-size: clamp(32px, 3.6vw, 48px); font-weight: 300; letter-spacing: -0.02em; }
+  .ins-header p { font-size: 16px; color: var(--body); max-width: 520px; }
+  .ins-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--hair);
+    border-left: 1px solid var(--hair);
+  }
+  .ins-cell {
+    aspect-ratio: 2/1;
+    border-right: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-align: center;
+    padding: 0 16px;
+    transition: background .2s;
+  }
+  .ins-cell:hover { background: var(--green-tint); }
+  .ins-cell .super { font-size: 11px; font-family: var(--mono); letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; display: block; }
+  .ins-footnote { margin-top: 32px; font-size: 13px; color: var(--mute); font-family: var(--mono); letter-spacing: 0.04em; }
+
+  /* ---------- Locations ---------- */
+  .locations { padding: 120px 0; }
+  .loc-header { margin-bottom: 56px; }
+  .loc-header h2 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; letter-spacing: -0.022em; margin-top: 16px; max-width: 820px; }
+  .loc-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+  .loc-map { aspect-ratio: 5/4; }
+  .loc-list { display: flex; flex-direction: column; }
+  .loc-item {
+    padding: 28px 0;
+    border-top: 1px solid var(--hair);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: start;
+    cursor: pointer;
+    transition: padding .2s;
+  }
+  .loc-item:last-child { border-bottom: 1px solid var(--hair); }
+  .loc-item:hover { padding-left: 8px; }
+  .loc-item .pin {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    padding-top: 4px;
+  }
+  .loc-item .info h4 { font-size: 19px; font-weight: 500; font-family: var(--sans); margin-bottom: 6px; letter-spacing: 0; }
+  .loc-item .info .addr { font-size: 14px; color: var(--body); line-height: 1.5; }
+  .loc-item .info .tags { font-size: 12px; color: var(--mute); margin-top: 8px; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+  .loc-item .go { color: var(--mute); padding-top: 4px; }
+
+  /* ---------- CTA / Footer ---------- */
+  .final-cta {
+    background: var(--green-deep);
+    color: #E6F0E5;
+    padding: 120px 0;
+  }
+  .final-cta .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: end; }
+  .final-cta h2 {
+    color: #fff;
+    font-size: clamp(40px, 5.2vw, 80px);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .final-cta h2 em { font-style: italic; color: #B8D9C3; }
+  .final-cta .actions { display: flex; flex-direction: column; gap: 18px; }
+  .final-cta .actions a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    font-size: 18px;
+    color: #fff;
+    font-family: var(--serif);
+    font-weight: 300;
+    transition: padding .2s;
+  }
+  .final-cta .actions a:last-child { border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .final-cta .actions a:hover { padding-left: 8px; }
+  .final-cta .actions a .arrow { color: #B8D9C3; }
+
+  footer.site {
+    background: var(--ink);
+    color: #9C9A91;
+    padding: 80px 0 40px;
+  }
+  footer.site .wrap { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 56px; }
+  footer.site h5 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6E6C64;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  footer.site ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  footer.site ul a { color: #C9C7BF; font-size: 14px; transition: color .15s; }
+  footer.site ul a:hover { color: #fff; }
+  .foot-brand img { height: 50px; width: auto; filter: brightness(0) invert(1) opacity(0.92); margin-bottom: 24px; }
+  .foot-brand p { font-size: 14px; color: #9C9A91; line-height: 1.55; max-width: 320px; }
+  .foot-bottom { margin-top: 80px; padding-top: 32px; border-top: 1px solid #2A2A24; display: flex; justify-content: space-between; font-size: 12px; color: #6E6C64; font-family: var(--mono); letter-spacing: 0.06em; }
+  .foot-bottom a { color: #6E6C64; }
+  .foot-bottom a:hover { color: #C9C7BF; }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 960px) {
+    .wrap, .wrap-narrow { padding: 0 24px; }
+    .hero .wrap, .featured-block, .featured-header, .loc-grid, .ins-header, .final-cta .wrap { grid-template-columns: 1fr !important; gap: 40px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .spec-grid, .ins-grid, .diff-grid, .test-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .spec-card { border-right: none !important; }
+    .spec-card:nth-child(2n) { border-right: none; }
+    footer.site .wrap { grid-template-columns: 1fr 1fr; }
+    .navlinks { display: none; }
+  }
+</style>
+</head>
+<body data-screen-label="Direction 1 — Quiet Editorial">
+
+<!-- Utility bar -->
+<div class="util">
+  <div class="wrap">
+    <div class="util-left">
+      <span class="util-tag">Edgewood Surgical Hospital</span>
+      <span>Transfer, Pennsylvania · Since 2001</span>
+    </div>
+    <div class="util-right">
+      <a href="#" class="phone">(XXX) XXX-XXXX</a>
+      <a href="#">Careers</a>
+      <a href="#">Patient Portal</a>
+      <a href="#" class="billpay">Bill Pay</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main nav -->
+<nav class="main">
+  <div class="wrap">
+    <a href="#" class="logo"><img src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital"></a>
+    <div class="navlinks">
+      <a href="#" class="has-caret">Specialties</a>
+      <a href="#">The Edgewood Difference</a>
+      <a href="#">Patients &amp; Visitors</a>
+      <a href="#">Our Story</a>
+      <a href="#">Locations</a>
+    </div>
+    <a href="#" class="nav-cta"><span class="dot"></span>Contact us</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-meta">
+        <span>EST. 2001</span><span class="sep"></span>
+        <span>Physician-driven</span><span class="sep"></span>
+        <span>Pennsylvania</span>
+      </div>
+      <h1>World-class care,<br><em>close to home.</em></h1>
+      <p class="lede">A physician-driven surgical hospital dedicated to exceptional, patient-centered care — with the warmth and attentiveness you deserve, right here within your community.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-dark">Explore specialties <span class="arrow">→</span></a>
+        <a href="#" class="btn btn-ghost">Our story</a>
+      </div>
+    </div>
+    <div class="photo hero-photo">
+      <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="s1" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#cfc9bb" stroke-width="1.2"/></pattern></defs><rect width="100" height="100" fill="url(#s1)"/></svg>
+      <span class="photo-num">001 / Hero</span>
+      <span class="photo-label">Patient moment · staff hand-on-shoulder · natural light</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="num">#1<sup></sup></span>
+        <span class="label">Lowest infection rates in Pennsylvania</span>
+      </div>
+      <div class="stat">
+        <span class="num">25<sup>yrs</sup></span>
+        <span class="label">Patient-first care since 2001</span>
+      </div>
+      <div class="stat">
+        <span class="num">4<sup></sup></span>
+        <span class="label">Highly specialized service lines</span>
+      </div>
+      <div class="stat">
+        <span class="num">100%<sup></sup></span>
+        <span class="label">Private in-patient rooms with family accommodations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured specialties -->
+<section class="featured-section">
+  <div class="wrap">
+    <div class="featured-header">
+      <div>
+        <span class="eyebrow">Specialties</span>
+        <h2 style="margin-top:18px;">Where we sell <em style="font-style:italic;color:var(--green-deep)">ourselves.</em></h2>
+      </div>
+      <p>Two service lines lead our practice — built on physician expertise, advanced technology, and a quieter, more attentive model of surgical care than the acute-care hospitals of the past century.</p>
+    </div>
+
+    <!-- Cardiology -->
+    <div class="featured-block">
+      <div class="featured-content">
+        <span class="eyebrow">01 — New Program</span>
+        <h3>Cardiology</h3>
+        <p>A new chapter for Edgewood. Our cardiology program brings the same physician-driven, patient-first standard to heart care — diagnostic, interventional, and rhythm services delivered in a setting designed for comfort and recovery rather than throughput.</p>
+        <ul class="featured-list">
+          <li><span>Interventional cardiology</span><span class="sub">Cath lab</span></li>
+          <li><span>Electrophysiology &amp; rhythm</span><span class="sub">Outpatient</span></li>
+          <li><span>Structural heart &amp; valve</span><span class="sub">Advanced</span></li>
+          <li><span>Cardiac imaging &amp; diagnostics</span><span class="sub">On-site</span></li>
+        </ul>
+        <a href="#" class="arrow-link">Explore Cardiology <span>→</span></a>
+      </div>
+      <div class="photo featured-photo">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="s2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#cfc9bb" stroke-width="1.2"/></pattern></defs><rect width="100" height="100" fill="url(#s2)"/></svg>
+        <span class="photo-num">002 / Cardiology</span>
+        <span class="photo-label">Cath lab · physician at console · cool light</span>
+      </div>
+    </div>
+
+    <!-- Spine & Pain -->
+    <div class="featured-block">
+      <div class="featured-content">
+        <span class="eyebrow">02 — Center of Excellence</span>
+        <h3>Spine &amp; Pain Management</h3>
+        <p>The Center for Spine &amp; Pain Management is the heart of what we do — minimally-invasive spine surgery, interventional pain procedures, and the revolutionary non-surgical pain treatment <em style="font-style:italic;color:var(--green-deep)">Iovera</em>. Relief without the long recovery.</p>
+        <ul class="featured-list">
+          <li><span>Minimally-invasive spine surgery</span><span class="sub">Outpatient</span></li>
+          <li><span>Interventional pain procedures</span><span class="sub">Image-guided</span></li>
+          <li><span>Iovera<sup>°</sup> non-surgical pain treatment</span><span class="sub">Revolutionary</span></li>
+          <li><span>Physical medicine &amp; rehabilitation</span><span class="sub">In-house</span></li>
+        </ul>
+        <a href="#" class="arrow-link">Explore the Center <span>→</span></a>
+      </div>
+      <div class="photo featured-photo">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="s3" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#cfc9bb" stroke-width="1.2"/></pattern></defs><rect width="100" height="100" fill="url(#s3)"/></svg>
+        <span class="photo-num">003 / Spine</span>
+        <span class="photo-label">Procedure room · warm tone · staff at work</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other specialties grid -->
+<section class="specialties-grid-section">
+  <div class="wrap">
+    <div class="grid-header">
+      <h3>Other specialties &amp; supporting services</h3>
+      <span class="meta">04 specialties · full-spectrum support</span>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div>
+          <span class="num">03</span>
+          <h4>Orthopedics</h4>
+          <p>Joint replacement, sports medicine, and reconstructive procedures in a setting built for recovery.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+      <div class="spec-card">
+        <div>
+          <span class="num">04</span>
+          <h4>Ophthalmology &amp; Retina</h4>
+          <p>Cataract, retinal, and complex eye procedures — precise, gentle, and same-day.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+      <div class="spec-card">
+        <div>
+          <span class="num">05</span>
+          <h4>Anesthesiology</h4>
+          <p>Board-certified anesthesiologists with a focus on patient comfort and safe recovery.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+      <div class="spec-card">
+        <div>
+          <span class="num">06</span>
+          <h4>Imaging &amp; Diagnostics</h4>
+          <p>On-site advanced imaging that keeps your care under one roof, start to finish.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+      <div class="spec-card">
+        <div>
+          <span class="num">07</span>
+          <h4>Pre &amp; Post-operative</h4>
+          <p>Dedicated nursing teams with high staff-to-patient ratios, before and after your visit.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+      <div class="spec-card">
+        <div>
+          <span class="num">08</span>
+          <h4>In-patient Recovery</h4>
+          <p>Private rooms with family accommodations and catered meals — a quieter way to heal.</p>
+        </div>
+        <span class="arrow-corner">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Edgewood Difference -->
+<section class="difference">
+  <div class="wrap">
+    <span class="eyebrow">The Edgewood Difference</span>
+    <h2>More like a caring home<br>than a traditional <em>hospital.</em></h2>
+    <p class="lede">A boutique, modern alternative to the old acute-care model — built around the patient, not the institution.</p>
+    <div class="diff-grid">
+      <div class="diff-cell">
+        <div class="big">#1<sup>★</sup></div>
+        <h4>Lowest infection rates</h4>
+        <p>An unwavering commitment to safety — the lowest infection rates of any hospital in Pennsylvania.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="big">1:4<sup></sup></div>
+        <h4>Staff-to-patient ratios</h4>
+        <p>Dedicated nursing teams with high staff-to-patient ratios, and personalized attention every step of the way.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="big">100<sup>%</sup></div>
+        <h4>Private rooms</h4>
+        <p>Every in-patient room is private, with family accommodations and catered meals — a quieter, more dignified recovery.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="big">25<sup>yrs</sup></div>
+        <h4>Pioneering since 2001</h4>
+        <p>Founded on a vision of bringing pioneering, patient-first healthcare to the region — physician-driven from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="test-header">
+      <span class="eyebrow">Patient voices</span>
+      <h2>Trust, gratitude, and excellent outcomes — in our patients' own words.</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <blockquote>From the moment I walked in, I knew this wasn't a regular hospital. It felt like the entire team was there for me — calm, attentive, personal.</blockquote>
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="attrib"><span class="who">Margaret D.</span><span class="what">Spine &amp; Pain · 2025</span></div>
+      </div>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <blockquote>The private room and the family accommodations made all the difference. My husband was able to stay with me overnight — I've never had that anywhere else.</blockquote>
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="attrib"><span class="who">Linda P.</span><span class="what">Orthopedics · 2025</span></div>
+      </div>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <blockquote>I drove two hours past three other hospitals to come here. Worth every mile. The nurses remembered my name, my family, my preferences.</blockquote>
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="attrib"><span class="who">Robert K.</span><span class="what">Cardiology · 2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Insurances -->
+<section class="insurances">
+  <div class="wrap">
+    <div class="ins-header">
+      <div>
+        <span class="eyebrow">Coverage</span>
+        <h2 style="margin-top:18px;">Insurances we accept</h2>
+      </div>
+      <p>We work with most major carriers and Medicare/Medicaid plans. Call our team if you don't see yours listed — we'll verify your coverage before you arrive.</p>
+    </div>
+    <div class="ins-grid">
+      <div class="ins-cell">Highmark</div>
+      <div class="ins-cell">UPMC Health Plan</div>
+      <div class="ins-cell">Aetna</div>
+      <div class="ins-cell">Cigna</div>
+      <div class="ins-cell">UnitedHealthcare</div>
+      <div class="ins-cell">Humana</div>
+      <div class="ins-cell">Medicare</div>
+      <div class="ins-cell">Medicaid</div>
+      <div class="ins-cell">Geisinger</div>
+      <div class="ins-cell">Tricare</div>
+      <div class="ins-cell">Workers' Comp</div>
+      <div class="ins-cell">+ more</div>
+    </div>
+    <p class="ins-footnote">— PARTIAL LIST · CALL TO VERIFY YOUR PLAN — (XXX) XXX-XXXX</p>
+  </div>
+</section>
+
+<!-- Locations -->
+<section class="locations">
+  <div class="wrap">
+    <div class="loc-header">
+      <span class="eyebrow">Locations</span>
+      <h2>Conveniently local — across western Pennsylvania.</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="photo loc-map">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="sm" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#cfc9bb" stroke-width="1.2"/></pattern></defs><rect width="100" height="100" fill="url(#sm)"/></svg>
+        <span class="photo-num">Map · Western PA</span>
+        <span class="photo-label">Interactive map · location pins · filter by service line</span>
+      </div>
+      <div class="loc-list">
+        <a class="loc-item">
+          <span class="pin">01</span>
+          <div class="info">
+            <h4>Edgewood Surgical Hospital</h4>
+            <div class="addr">Main campus · Transfer, PA</div>
+            <div class="tags">All specialties · in-patient</div>
+          </div>
+          <span class="go">→</span>
+        </a>
+        <a class="loc-item">
+          <span class="pin">02</span>
+          <div class="info">
+            <h4>Center for Spine &amp; Pain Management</h4>
+            <div class="addr">Hermitage, PA</div>
+            <div class="tags">Spine · pain · Iovera</div>
+          </div>
+          <span class="go">→</span>
+        </a>
+        <a class="loc-item">
+          <span class="pin">03</span>
+          <div class="info">
+            <h4>Edgewood Cardiology</h4>
+            <div class="addr">Transfer, PA</div>
+            <div class="tags">Cardiology · diagnostics</div>
+          </div>
+          <span class="go">→</span>
+        </a>
+        <a class="loc-item">
+          <span class="pin">04</span>
+          <div class="info">
+            <h4>Edgewood Orthopedics</h4>
+            <div class="addr">Sharon, PA</div>
+            <div class="tags">Ortho · sports medicine</div>
+          </div>
+          <span class="go">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>That's the<br>Edgewood way —<br><em>world-class care,</em><br><em>close to home.</em></h2>
+    <div class="actions">
+      <a href="#"><span>Speak with our team</span><span class="arrow">(XXX) XXX-XXXX →</span></a>
+      <a href="#"><span>Request information</span><span class="arrow">→</span></a>
+      <a href="#"><span>Visit a campus</span><span class="arrow">→</span></a>
+      <a href="#"><span>Careers at Edgewood</span><span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital">
+      <p>A physician-driven surgical hospital delivering exceptional, patient-centered care across western Pennsylvania — since 2001.</p>
+    </div>
+    <div>
+      <h5>Specialties</h5>
+      <ul>
+        <li><a href="#">Cardiology</a></li>
+        <li><a href="#">Spine &amp; Pain Management</a></li>
+        <li><a href="#">Orthopedics</a></li>
+        <li><a href="#">Ophthalmology &amp; Retina</a></li>
+        <li><a href="#">Iovera°</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Patients</h5>
+      <ul>
+        <li><a href="#">Bill Pay</a></li>
+        <li><a href="#">Patient Portal</a></li>
+        <li><a href="#">Insurances accepted</a></li>
+        <li><a href="#">Pre-op &amp; visitor info</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">Our story</a></li>
+        <li><a href="#">The Edgewood Difference</a></li>
+        <li><a href="#">Physicians</a></li>
+        <li><a href="#">News &amp; press</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Locations</h5>
+      <ul>
+        <li><a href="#">Transfer, PA</a></li>
+        <li><a href="#">Hermitage, PA</a></li>
+        <li><a href="#">Sharon, PA</a></li>
+        <li><a href="#">All locations</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom" style="grid-column:1/-1;">
+      <span>© 2026 EDGEWOOD SURGICAL HOSPITAL · ALL RIGHTS RESERVED</span>
+      <span><a href="#">PRIVACY</a> · <a href="#">HIPAA NOTICE</a> · <a href="#">ACCESSIBILITY</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

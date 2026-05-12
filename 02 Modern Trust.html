@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Edgewood Surgical Hospital — Modern Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --paper: #FAFAF7;
+    --green: #1B6E3F;
+    --green-deep: #0F4D2A;
+    --green-darker: #093520;
+    --green-tint: #F0F6F2;
+    --green-mid: #DCE9DF;
+    --ink: #0F1411;
+    --body: #3D4541;
+    --mute: #7A7E78;
+    --hair: #E8EAE6;
+    --hair-on-green: rgba(255,255,255,0.18);
+    --sans: "Geist", -apple-system, sans-serif;
+    --italic: "Newsreader", Georgia, serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--body);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, h4 {
+    font-family: var(--sans);
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .wrap { max-width: 1380px; margin: 0 auto; padding: 0 40px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 500;
+  }
+  .tag .dot { display: inline-block; width: 5px; height: 5px; background: var(--green); border-radius: 50%; margin-right: 8px; vertical-align: 2px; }
+  .on-green .tag { color: var(--green-mid); }
+  .on-green .tag .dot { background: var(--green-mid); }
+  .pull-italic { font-family: var(--italic); font-style: italic; font-weight: 400; }
+
+  /* ---------- Utility bar ---------- */
+  .util {
+    background: var(--ink);
+    color: rgba(255,255,255,0.78);
+    font-size: 12.5px;
+  }
+  .util .wrap { display: flex; justify-content: space-between; align-items: center; height: 40px; }
+  .util-left, .util-right { display: flex; gap: 24px; align-items: center; }
+  .util a { color: rgba(255,255,255,0.78); transition: color .15s; }
+  .util a:hover { color: #fff; }
+  .util .phone { color: #fff; font-family: var(--mono); letter-spacing: 0.04em; font-weight: 500; }
+  .util .phone::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green-mid); margin-right: 8px; vertical-align: 2px; }
+  .util .billpay {
+    background: var(--green-mid);
+    color: var(--ink);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: all .15s;
+  }
+  .util .billpay:hover { background: #fff; }
+  .util .since {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+  }
+
+  /* ---------- Nav ---------- */
+  nav.main {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hair);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  nav.main .wrap { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  .logo img { height: 46px; width: auto; }
+  .navlinks { display: flex; gap: 36px; align-items: center; }
+  .navlinks a {
+    font-size: 14.5px;
+    color: var(--ink);
+    font-weight: 500;
+    transition: color .2s;
+    padding: 6px 0;
+  }
+  .navlinks a:hover { color: var(--green); }
+  .navlinks a.has-caret::after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid var(--mute);
+    border-bottom: 1.5px solid var(--mute);
+    transform: rotate(45deg);
+    margin-left: 6px;
+    vertical-align: 3px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 999px;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--green-deep); }
+
+  /* ---------- Hero (split: green panel + photo) ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 88vh;
+    align-items: stretch;
+  }
+  .hero-left {
+    background: var(--green);
+    color: var(--white);
+    padding: 100px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, transparent 60%, rgba(9,53,32,0.4) 100%);
+    pointer-events: none;
+  }
+  .hero-left > * { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 56px;
+  }
+  .hero-eyebrow .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--green-mid);
+    border-radius: 50%;
+    animation: hpulse 2s infinite;
+  }
+  @keyframes hpulse {
+    0% { box-shadow: 0 0 0 0 rgba(220,233,223,0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(220,233,223,0); }
+    100% { box-shadow: 0 0 0 0 rgba(220,233,223,0); }
+  }
+  .hero h1 {
+    color: var(--white);
+    font-size: clamp(56px, 7.5vw, 112px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+  }
+  .hero h1 small {
+    display: block;
+    font-size: 0.46em;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: var(--green-mid);
+    margin-top: 18px;
+    line-height: 1.3;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .btn-white { background: var(--white); color: var(--green-deep); }
+  .btn-white:hover { background: var(--green-mid); }
+  .btn-outline-white { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+  .btn-dark { background: var(--ink); color: var(--white); }
+  .btn-dark:hover { background: var(--green-deep); }
+  .btn-green { background: var(--green); color: var(--white); }
+  .btn-green:hover { background: var(--green-deep); }
+  .btn-outline-dark { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn-outline-dark:hover { background: var(--ink); color: var(--white); }
+
+  .hero-foot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    margin-top: 56px;
+  }
+  .hero-foot .item .lbl {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 8px;
+  }
+  .hero-foot .item .val {
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .hero-right {
+    background: var(--green-tint);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right svg.stripes { width: 100%; height: 100%; opacity: 0.7; }
+  .hero-right .photo-tag {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--white);
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--hair);
+  }
+  .hero-right .photo-cap {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    right: 28px;
+    color: var(--green-deep);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 16px;
+    border-top: 1px solid var(--hair);
+  }
+  .hero-right .photo-cap strong {
+    display: block;
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    text-transform: none;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--hair);
+    padding: 32px 0;
+  }
+  .stats-strip .wrap { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 0; align-items: center; }
+  .stats-strip .label-cell {
+    padding-right: 40px;
+    border-right: 1px solid var(--hair);
+  }
+  .stats-strip .label-cell .tag { display: flex; align-items: center; }
+  .stats-strip .stat {
+    padding: 0 32px;
+    border-right: 1px solid var(--hair);
+  }
+  .stats-strip .stat:last-child { border-right: none; }
+  .stats-strip .stat .big {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .stats-strip .stat .big .accent { color: var(--green); }
+  .stats-strip .stat .big sup { font-size: 16px; color: var(--green); vertical-align: top; margin-left: 2px; font-weight: 500; }
+  .stats-strip .stat .small {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.4;
+  }
+
+  /* ---------- Featured specialties ---------- */
+  .featured { padding: 140px 0 100px; }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+  .section-head h2 {
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+  .section-head p {
+    font-size: 18px;
+    color: var(--body);
+    max-width: 560px;
+    line-height: 1.55;
+  }
+  .section-head .tag { margin-bottom: 24px; display: block; }
+
+  /* Cardiology card — white with green corner */
+  .feat-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    border: 1px solid var(--hair);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 32px;
+    background: var(--white);
+  }
+  .feat-card.green-bg {
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+  }
+  .feat-card.green-bg .feat-text { color: rgba(255,255,255,0.86); }
+  .feat-card.green-bg .feat-text h3 { color: var(--white); }
+  .feat-card.green-bg .feat-text .lede { color: rgba(255,255,255,0.9); }
+  .feat-card.green-bg .feat-text .tag { color: var(--green-mid); }
+  .feat-card.green-bg .feat-text .tag .dot { background: var(--green-mid); }
+  .feat-card.green-bg .feat-list li { border-color: rgba(255,255,255,0.18); color: var(--white); }
+  .feat-card.green-bg .feat-list li .sub { color: var(--green-mid); }
+  .feat-card.green-bg .feat-link { color: var(--white); border-color: rgba(255,255,255,0.7); }
+
+  .feat-card.reverse { grid-template-columns: 1.2fr 1fr; }
+  .feat-card.reverse .feat-photo { order: -1; }
+  .feat-photo {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+    background: var(--green-tint);
+  }
+  .feat-card.green-bg .feat-photo { background: var(--green-deep); }
+  .feat-photo svg.stripes { width: 100%; height: 100%; opacity: 0.6; }
+  .feat-card.green-bg .feat-photo svg.stripes { opacity: 0.3; }
+  .feat-photo .photo-tag {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--white);
+    color: var(--ink);
+    padding: 7px 12px;
+    border-radius: 999px;
+  }
+  .feat-photo .badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--green);
+    color: var(--white);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .feat-card.green-bg .feat-photo .badge { background: var(--white); color: var(--green-deep); }
+  .feat-photo .photo-cap {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .feat-card.green-bg .feat-photo .photo-cap { color: var(--green-mid); }
+  .feat-text {
+    padding: 60px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feat-text .tag { margin-bottom: 24px; display: block; }
+  .feat-text h3 {
+    font-size: clamp(40px, 4.6vw, 64px);
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+  }
+  .feat-text .lede {
+    font-size: 17.5px;
+    line-height: 1.55;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+  .feat-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
+  }
+  .feat-list li {
+    padding: 14px 0;
+    border-top: 1px solid var(--hair);
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .feat-list li:last-child { border-bottom: 1px solid var(--hair); }
+  .feat-list li .sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .feat-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 6px;
+    font-size: 14.5px;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: gap .2s;
+  }
+  .feat-link:hover { gap: 16px; }
+
+  /* ---------- Other specialties (clean 4-col grid) ---------- */
+  .other-specialties {
+    padding: 80px 0 140px;
+    border-top: 1px solid var(--hair);
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .spec-tile {
+    background: var(--white);
+    border: 1px solid var(--hair);
+    border-radius: 10px;
+    padding: 32px 28px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .spec-tile:hover {
+    border-color: var(--green);
+    background: var(--green-tint);
+    transform: translateY(-2px);
+  }
+  .spec-tile .tile-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green-tint);
+    color: var(--green-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border: 1px solid var(--green-mid);
+  }
+  .spec-tile:hover .tile-icon { background: var(--white); }
+  .spec-tile h4 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    line-height: 1.05;
+  }
+  .spec-tile p {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.5;
+  }
+  .spec-tile .corner {
+    align-self: flex-end;
+    color: var(--mute);
+    font-size: 18px;
+    margin-top: 16px;
+  }
+  .spec-tile:hover .corner { color: var(--green-deep); }
+
+  /* ---------- The Edgewood Difference (green panel) ---------- */
+  .difference {
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .difference::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(27,110,63,0.6) 0%, transparent 70%);
+  }
+  .difference .wrap { position: relative; z-index: 2; }
+  .difference .section-head h2 { color: var(--white); }
+  .difference .section-head p { color: rgba(255,255,255,0.86); }
+  .difference .section-head .tag { color: var(--green-mid); }
+  .difference .section-head .tag .dot { background: var(--green-mid); }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hair-on-green);
+  }
+  .diff-cell {
+    padding: 40px 28px 40px 0;
+    padding-left: 28px;
+    border-right: 1px solid var(--hair-on-green);
+  }
+  .diff-cell:first-child { padding-left: 0; }
+  .diff-cell:last-child { border-right: none; }
+  .diff-cell .num {
+    font-size: 88px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+  }
+  .diff-cell .num sup { font-size: 24px; vertical-align: top; color: var(--green-mid); margin-left: 2px; }
+  .diff-cell .num .accent { color: var(--green-mid); }
+  .diff-cell h4 {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .diff-cell p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.74);
+    line-height: 1.55;
+  }
+  .diff-quote {
+    margin-top: 80px;
+    padding-top: 56px;
+    border-top: 1px solid var(--hair-on-green);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .diff-quote .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+  }
+  .diff-quote blockquote {
+    font-family: var(--italic);
+    font-style: italic;
+    font-size: clamp(24px, 2.8vw, 38px);
+    line-height: 1.3;
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials {
+    padding: 140px 0;
+    background: var(--white);
+  }
+  .test-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 64px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--hair);
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .test-head h2 {
+    font-size: clamp(40px, 5vw, 76px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+  .test-head .tag { display: block; margin-bottom: 16px; }
+  .test-head .rating {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .test-head .rating .stars { color: var(--green); font-size: 22px; letter-spacing: 0.04em; }
+  .test-head .rating .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .test-card {
+    background: var(--white);
+    border: 1px solid var(--hair);
+    border-radius: 10px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 320px;
+  }
+  .test-card .stars { color: var(--green); font-size: 14px; letter-spacing: 0.06em; }
+  .test-card blockquote {
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .test-card .who {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--hair);
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .test-card .who .what { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute); text-transform: uppercase; font-weight: 400; }
+
+  /* ---------- Insurances ---------- */
+  .insurances {
+    padding: 140px 0;
+    background: var(--paper);
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+  }
+  .ins-row {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .ins-row h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin: 18px 0 24px;
+  }
+  .ins-row .lede {
+    font-size: 17px;
+    color: var(--body);
+    max-width: 440px;
+    line-height: 1.55;
+    margin-bottom: 32px;
+  }
+  .verify-card {
+    background: var(--white);
+    border: 1px solid var(--hair);
+    border-left: 3px solid var(--green);
+    padding: 24px 28px;
+    border-radius: 6px;
+  }
+  .verify-card .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--green-deep);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .verify-card .num {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .verify-card small { font-size: 13px; color: var(--mute); display: block; margin-top: 8px; }
+  .ins-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hair);
+    border-left: 1px solid var(--hair);
+    background: var(--white);
+  }
+  .ins-cell {
+    padding: 28px 24px;
+    border-right: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: background .2s;
+    cursor: pointer;
+    min-height: 92px;
+  }
+  .ins-cell:hover { background: var(--green-tint); }
+  .ins-cell .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--green-deep);
+    width: 24px;
+    flex-shrink: 0;
+  }
+  .ins-cell .name {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .ins-cell.more {
+    background: var(--green-tint);
+  }
+  .ins-cell.more .name { color: var(--green-deep); }
+  .ins-cell.more::after { content: "→"; margin-left: auto; color: var(--green-deep); }
+
+  /* ---------- Locations ---------- */
+  .locations {
+    padding: 140px 0;
+    background: var(--white);
+  }
+  .loc-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+  .loc-map {
+    aspect-ratio: 5/4;
+    background: var(--green-tint);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--hair);
+  }
+  .loc-map svg.stripes { width: 100%; height: 100%; opacity: 0.5; }
+  .loc-map .pin {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 12px rgba(15,77,42,0.25);
+  }
+  .loc-map .pin.featured {
+    background: var(--ink);
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    box-shadow: 0 4px 16px rgba(15,20,17,0.3);
+  }
+  .loc-map .pin.featured::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    animation: ringPulse 2s infinite;
+  }
+  @keyframes ringPulse {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.6); }
+  }
+  .loc-map .p1 { top: 38%; left: 22%; }
+  .loc-map .p2 { top: 52%; left: 38%; }
+  .loc-map .p3 { top: 30%; left: 58%; }
+  .loc-map .p4 { top: 62%; left: 70%; }
+  .loc-map .tag-pill {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--hair);
+  }
+  .loc-list { display: flex; flex-direction: column; gap: 12px; }
+  .loc-card {
+    padding: 22px 24px;
+    background: var(--white);
+    border: 1px solid var(--hair);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 18px;
+    align-items: center;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .loc-card:hover { border-color: var(--green); background: var(--green-tint); }
+  .loc-card .pin-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .loc-card.featured .pin-num { background: var(--ink); }
+  .loc-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 3px;
+  }
+  .loc-card .addr { font-size: 13.5px; color: var(--body); }
+  .loc-card .meta { font-size: 11px; color: var(--green-deep); font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+  .loc-card .arrow { color: var(--mute); font-size: 18px; }
+  .loc-card:hover .arrow { color: var(--green-deep); }
+
+  /* ---------- Closer ---------- */
+  .closer {
+    background: var(--green);
+    color: var(--white);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .closer .wrap {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .closer .tag { color: var(--green-mid); display: block; margin-bottom: 32px; }
+  .closer .tag .dot { background: var(--green-mid); }
+  .closer h2 {
+    color: var(--white);
+    font-size: clamp(56px, 7.5vw, 128px);
+    font-weight: 600;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+  .closer h2 .accent { color: var(--green-mid); }
+  .closer-actions { display: flex; flex-direction: column; gap: 12px; }
+  .closer-actions a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    color: var(--white);
+    font-size: 16px;
+    transition: all .2s;
+    font-weight: 500;
+  }
+  .closer-actions a:hover { background: var(--white); color: var(--green-deep); }
+  .closer-actions a .meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; }
+  .closer-actions a:hover .meta { opacity: 1; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--ink);
+    color: rgba(255,255,255,0.72);
+    padding: 80px 0 36px;
+  }
+  footer.site .wrap { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 56px; }
+  footer.site h5 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  footer.site ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  footer.site ul a {
+    color: rgba(255,255,255,0.8);
+    font-size: 14.5px;
+    transition: color .15s;
+  }
+  footer.site ul a:hover { color: var(--white); }
+  .foot-brand img { height: 52px; width: auto; filter: brightness(0) invert(1) opacity(0.95); margin-bottom: 24px; }
+  .foot-brand .tagline {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    max-width: 320px;
+  }
+  .foot-brand p { font-size: 13.5px; color: rgba(255,255,255,0.65); max-width: 320px; line-height: 1.55; }
+  .foot-bottom {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .foot-bottom a { color: rgba(255,255,255,0.5); }
+  .foot-bottom a:hover { color: var(--white); }
+
+  /* Mobile */
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 80px 32px; }
+    .hero-right { min-height: 360px; }
+    .hero-foot { grid-template-columns: 1fr; }
+    .stats-strip .wrap { grid-template-columns: 1fr 1fr; }
+    .stats-strip .label-cell { grid-column: 1 / -1; border-right: none; padding-right: 0; padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 16px; }
+    .stats-strip .stat { border-right: none; padding: 16px; }
+    .feat-card, .feat-card.reverse { grid-template-columns: 1fr; }
+    .feat-card.reverse .feat-photo { order: 0; }
+    .feat-text { padding: 40px 28px; }
+    .feat-photo { min-height: 320px; }
+    .section-head, .ins-row, .loc-grid, .closer .wrap, .diff-quote { grid-template-columns: 1fr !important; gap: 32px; }
+    .spec-grid, .diff-grid, .test-grid, .ins-grid { grid-template-columns: 1fr 1fr !important; }
+    .diff-cell { border-right: none; border-bottom: 1px solid var(--hair-on-green); padding-left: 0; }
+    .diff-cell:nth-child(2n) { border-right: none; }
+    footer.site .wrap { grid-template-columns: 1fr 1fr; }
+    .navlinks { display: none; }
+  }
+</style>
+</head>
+<body data-screen-label="Direction 2 — Modern Trust">
+
+<!-- Utility -->
+<div class="util">
+  <div class="wrap">
+    <div class="util-left">
+      <span class="since">Edgewood Surgical Hospital · Est. 2001</span>
+    </div>
+    <div class="util-right">
+      <a href="#" class="phone">(XXX) XXX-XXXX</a>
+      <a href="#">Careers</a>
+      <a href="#">Patient Portal</a>
+      <a href="#" class="billpay">Bill Pay →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="main">
+  <div class="wrap">
+    <a href="#" class="logo"><img src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital"></a>
+    <div class="navlinks">
+      <a href="#" class="has-caret">Specialties</a>
+      <a href="#">The Difference</a>
+      <a href="#">Patients</a>
+      <a href="#">Our story</a>
+      <a href="#">Locations</a>
+    </div>
+    <a href="#" class="nav-cta">Contact us</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="pulse"></span>
+        <span>Pioneering since 2001 · Physician-driven</span>
+      </div>
+      <h1>
+        World-class<br>care, close<br>to home.
+        <small>A surgical hospital built around you, not the institution. Specialty care in cardiology, spine &amp; pain, orthopedics, and ophthalmology — right here within your community.</small>
+      </h1>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-white">Explore specialties →</a>
+        <a href="#" class="btn btn-outline-white">Take a tour</a>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <div class="item">
+        <div class="lbl">Talk to us</div>
+        <div class="val">(XXX) XXX-XXXX</div>
+      </div>
+      <div class="item">
+        <div class="lbl">Main campus</div>
+        <div class="val">Transfer, Pennsylvania</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="hp" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1B6E3F" stroke-width="0.6"/></pattern></defs><rect width="100" height="100" fill="url(#hp)"/></svg>
+    <span class="photo-tag">Hero · facility</span>
+    <div class="photo-cap">
+      <strong>A quieter way to heal.</strong>
+      Facility exterior · warm light · entry approach
+    </div>
+  </div>
+</section>
+
+<!-- Stats strip -->
+<section class="stats-strip">
+  <div class="wrap">
+    <div class="label-cell">
+      <span class="tag"><span class="dot"></span>By the numbers</span>
+    </div>
+    <div class="stat">
+      <div class="big"><span class="accent">#1</span></div>
+      <div class="small">Lowest infection rates in PA</div>
+    </div>
+    <div class="stat">
+      <div class="big">25<sup>yr</sup></div>
+      <div class="small">Patient-first care since 2001</div>
+    </div>
+    <div class="stat">
+      <div class="big">100<sup>%</sup></div>
+      <div class="small">Private rooms with family stay</div>
+    </div>
+    <div class="stat">
+      <div class="big">4<sup>·</sup></div>
+      <div class="small">Specialty service lines</div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured specialties -->
+<section class="featured">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dot"></span>Specialties</span>
+        <h2>What we are known for.</h2>
+      </div>
+      <p>Two service lines lead our practice — Cardiology and the Center for Spine &amp; Pain Management. Both are built on physician expertise, modern technology, and a quieter, more attentive model of surgical care.</p>
+    </div>
+
+    <!-- Cardiology — white card with green badge -->
+    <div class="feat-card">
+      <div class="feat-photo">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="fp1c" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1B6E3F" stroke-width="0.6"/></pattern></defs><rect width="100" height="100" fill="url(#fp1c)"/></svg>
+        <span class="photo-tag">Specialty · 01</span>
+        <span class="badge">New program</span>
+        <span class="photo-cap">Cath lab · physician at console</span>
+      </div>
+      <div class="feat-text">
+        <span class="tag"><span class="dot"></span>Now expanding</span>
+        <h3>Cardiology at Edgewood.</h3>
+        <p class="lede">A new chapter for the hospital. We're bringing our physician-driven, patient-first standard to heart care — diagnostic, interventional, and rhythm services in a setting designed for recovery rather than throughput.</p>
+        <ul class="feat-list">
+          <li><span>Interventional cardiology</span><span class="sub">Cath lab</span></li>
+          <li><span>Electrophysiology &amp; rhythm</span><span class="sub">Outpatient</span></li>
+          <li><span>Structural heart &amp; valve</span><span class="sub">Advanced</span></li>
+          <li><span>Cardiac imaging &amp; diagnostics</span><span class="sub">On-site</span></li>
+        </ul>
+        <a href="#" class="feat-link">Explore Cardiology <span>→</span></a>
+      </div>
+    </div>
+
+    <!-- Spine — green card -->
+    <div class="feat-card reverse green-bg">
+      <div class="feat-text">
+        <span class="tag"><span class="dot"></span>Center of Excellence</span>
+        <h3>Center for Spine<br>&amp; Pain Management.</h3>
+        <p class="lede">The heart of our practice. Minimally-invasive spine surgery, interventional pain procedures, and the revolutionary non-surgical pain treatment <strong>Iovera°</strong> — relief without the long recovery.</p>
+        <ul class="feat-list">
+          <li><span>Minimally-invasive spine surgery</span><span class="sub">Outpatient</span></li>
+          <li><span>Interventional pain procedures</span><span class="sub">Image-guided</span></li>
+          <li><span>Iovera° non-surgical pain</span><span class="sub">In-house</span></li>
+          <li><span>Physical medicine &amp; rehab</span><span class="sub">Full spectrum</span></li>
+        </ul>
+        <a href="#" class="feat-link">Explore the Center <span>→</span></a>
+      </div>
+      <div class="feat-photo">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="fp2c" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#FFFFFF" stroke-width="0.6"/></pattern></defs><rect width="100" height="100" fill="url(#fp2c)"/></svg>
+        <span class="photo-tag">Specialty · 02</span>
+        <span class="badge">Iovera° available</span>
+        <span class="photo-cap">Procedure suite · warm materials</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other specialties -->
+<section class="other-specialties">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dot"></span>Full spectrum</span>
+        <h2>And every service that supports them.</h2>
+      </div>
+      <p>From pre-op through recovery, every part of your care happens under one roof — with the same physician-driven standard.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">03</div>
+          <h4>Orthopedics</h4>
+          <p>Joint replacement, sports medicine, and reconstructive procedures.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">04</div>
+          <h4>Ophthalmology &amp; Retina</h4>
+          <p>Cataract, retinal, and complex eye procedures — precise, gentle, same-day.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">05</div>
+          <h4>Anesthesiology</h4>
+          <p>Board-certified anesthesiologists focused on patient comfort.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">06</div>
+          <h4>Imaging &amp; Diagnostics</h4>
+          <p>Advanced on-site imaging keeps your care under one roof.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">07</div>
+          <h4>Pre &amp; Post-op</h4>
+          <p>Dedicated nursing with high staff-to-patient ratios, before and after.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">08</div>
+          <h4>In-patient Recovery</h4>
+          <p>Private rooms, family accommodations, catered meals.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">09</div>
+          <h4>Patient Navigation</h4>
+          <p>Personalized support from your first call through discharge.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+      <div class="spec-tile">
+        <div>
+          <div class="tile-icon">+</div>
+          <h4>See all services</h4>
+          <p>The full spectrum of surgical and post-surgical care.</p>
+        </div>
+        <span class="corner">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Edgewood Difference -->
+<section class="difference on-green">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dot"></span>The Edgewood Difference</span>
+        <h2>More like a caring home than a traditional hospital.</h2>
+      </div>
+      <p>Boutique, modern, patient-first. Edgewood is the alternative to the century-old acute-care model — built around you, not the institution. State-of-the-art technology, the warmth of a community hospital, and the lowest infection rates in Pennsylvania.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-cell">
+        <div class="num"><span class="accent">#1</span></div>
+        <h4>Lowest infection rates</h4>
+        <p>An unwavering commitment to safety — the lowest infection rates of any hospital in Pennsylvania.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="num">1:4</div>
+        <h4>Staff-to-patient ratios</h4>
+        <p>Dedicated nursing teams with high staff-to-patient ratios and personalized attention.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="num">100<sup>%</sup></div>
+        <h4>Private rooms</h4>
+        <p>Every in-patient room is private, with family accommodations and catered meals.</p>
+      </div>
+      <div class="diff-cell">
+        <div class="num">25<sup>yr</sup></div>
+        <h4>Since 2001</h4>
+        <p>Pioneering patient-first care for the region — physician-driven from day one.</p>
+      </div>
+    </div>
+    <div class="diff-quote">
+      <span class="lbl">From our founding promise</span>
+      <blockquote>"To provide the very best experience possible — with the warmth and attentiveness you deserve. That's the Edgewood way."</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="test-head">
+      <div>
+        <span class="tag"><span class="dot"></span>Patient voices</span>
+        <h2>In their own words.</h2>
+      </div>
+      <div class="rating">
+        <div class="stars">★★★★★</div>
+        <div class="meta">4.9 · 1,200+ reviews · Google + Healthgrades</div>
+      </div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>From the moment I walked in, I knew this wasn't a regular hospital. The entire team was there for me — calm, attentive, and personal.</blockquote>
+        <div class="who"><span>Margaret D.</span><span class="what">Spine &amp; Pain · 2025</span></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>I drove two hours past three other hospitals to come here. Worth every mile — the nurses remembered my name, my family, my preferences.</blockquote>
+        <div class="who"><span>Robert K.</span><span class="what">Cardiology · 2025</span></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>The Iovera° treatment changed my life. Pain relief without surgery, without weeks of recovery. I was back on my feet the next morning.</blockquote>
+        <div class="who"><span>Janet W.</span><span class="what">Spine &amp; Pain · 2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Insurances -->
+<section class="insurances">
+  <div class="wrap">
+    <div class="ins-row">
+      <div>
+        <span class="tag"><span class="dot"></span>Coverage</span>
+        <h2>Insurances we accept.</h2>
+        <p class="lede">We work with most major carriers and Medicare/Medicaid plans. If you don't see yours listed, our team verifies coverage before you arrive — no surprises.</p>
+        <div class="verify-card">
+          <div class="lbl">Verify your plan</div>
+          <div class="num">(XXX) XXX-XXXX</div>
+          <small>Mon–Fri, 8am–5pm ET · or use our contact form</small>
+        </div>
+      </div>
+      <div>
+        <div class="ins-grid">
+          <div class="ins-cell"><span class="num">01</span><span class="name">Highmark</span></div>
+          <div class="ins-cell"><span class="num">02</span><span class="name">UPMC Health Plan</span></div>
+          <div class="ins-cell"><span class="num">03</span><span class="name">Aetna</span></div>
+          <div class="ins-cell"><span class="num">04</span><span class="name">Cigna</span></div>
+          <div class="ins-cell"><span class="num">05</span><span class="name">UnitedHealthcare</span></div>
+          <div class="ins-cell"><span class="num">06</span><span class="name">Humana</span></div>
+          <div class="ins-cell"><span class="num">07</span><span class="name">Medicare</span></div>
+          <div class="ins-cell"><span class="num">08</span><span class="name">Medicaid</span></div>
+          <div class="ins-cell"><span class="num">09</span><span class="name">Geisinger</span></div>
+          <div class="ins-cell"><span class="num">10</span><span class="name">Tricare</span></div>
+          <div class="ins-cell"><span class="num">11</span><span class="name">Workers' Comp</span></div>
+          <div class="ins-cell more"><span class="num">+</span><span class="name">See full list</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Locations -->
+<section class="locations">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dot"></span>Locations</span>
+        <h2>Conveniently local.</h2>
+      </div>
+      <p>Our main campus and satellite centers across western Pennsylvania — close to home, easy to find, easy to come back to.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map">
+        <svg class="stripes" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><pattern id="map2c" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1B6E3F" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(#map2c)"/></svg>
+        <span class="tag-pill">Map · Western PA</span>
+        <span class="pin featured p1">★</span>
+        <span class="pin p2">2</span>
+        <span class="pin p3">3</span>
+        <span class="pin p4">4</span>
+      </div>
+      <div class="loc-list">
+        <a class="loc-card featured">
+          <span class="pin-num">★</span>
+          <div>
+            <h4>Edgewood Surgical Hospital</h4>
+            <div class="addr">Main campus · Transfer, PA</div>
+            <div class="meta">All specialties · in-patient</div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="loc-card">
+          <span class="pin-num">2</span>
+          <div>
+            <h4>Center for Spine &amp; Pain</h4>
+            <div class="addr">Hermitage, PA</div>
+            <div class="meta">Spine · pain · Iovera°</div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="loc-card">
+          <span class="pin-num">3</span>
+          <div>
+            <h4>Edgewood Cardiology</h4>
+            <div class="addr">Transfer, PA</div>
+            <div class="meta">Cardiology · diagnostics</div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a class="loc-card">
+          <span class="pin-num">4</span>
+          <div>
+            <h4>Edgewood Orthopedics</h4>
+            <div class="addr">Sharon, PA</div>
+            <div class="meta">Ortho · sports medicine</div>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Closer -->
+<section class="closer on-green">
+  <div class="wrap">
+    <div>
+      <span class="tag"><span class="dot"></span>The Edgewood promise</span>
+      <h2>World-class care,<br><span class="accent">close to home.</span></h2>
+    </div>
+    <div class="closer-actions">
+      <a href="#"><span>Speak with our team</span><span class="meta">(XXX) XXX-XXXX</span></a>
+      <a href="#"><span>Request information</span><span class="meta">FORM →</span></a>
+      <a href="#"><span>Schedule a visit</span><span class="meta">VISIT →</span></a>
+      <a href="#"><span>Careers at Edgewood</span><span class="meta">JOIN →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital">
+      <div class="tagline">World-class care, close to home.</div>
+      <p>A physician-driven surgical hospital delivering exceptional, patient-centered care across western Pennsylvania — since 2001.</p>
+    </div>
+    <div>
+      <h5>Specialties</h5>
+      <ul>
+        <li><a href="#">Cardiology</a></li>
+        <li><a href="#">Spine &amp; Pain</a></li>
+        <li><a href="#">Orthopedics</a></li>
+        <li><a href="#">Ophthalmology</a></li>
+        <li><a href="#">Iovera°</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Patients</h5>
+      <ul>
+        <li><a href="#">Bill Pay</a></li>
+        <li><a href="#">Patient Portal</a></li>
+        <li><a href="#">Insurances</a></li>
+        <li><a href="#">Visitor info</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>About</h5>
+      <ul>
+        <li><a href="#">Our story</a></li>
+        <li><a href="#">The Difference</a></li>
+        <li><a href="#">Physicians</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Locations</h5>
+      <ul>
+        <li><a href="#">Transfer, PA</a></li>
+        <li><a href="#">Hermitage, PA</a></li>
+        <li><a href="#">Sharon, PA</a></li>
+        <li><a href="#">All →</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Edgewood Surgical Hospital · All rights reserved</span>
+      <span><a href="#">Privacy</a> · <a href="#">HIPAA</a> · <a href="#">Accessibility</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
