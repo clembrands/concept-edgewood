@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Edgewood Surgical · 3 Home Page Directions</title>
+<title>Edgewood Surgical · Round 02 — Refined Direction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -154,10 +154,139 @@
   }
   .head-meta strong { color: var(--ink); font-weight: 500; }
 
+  /* Featured (refined) card */
+  .featured-row {
+    margin-bottom: 64px;
+  }
+  .featured-row .feat {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0;
+    background: #fff;
+    border: 1px solid var(--hair);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    align-items: center;
+  }
+  .featured-row .feat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 28px 70px rgba(20,20,15,0.10);
+  }
+  .featured-row .feat .preview {
+    aspect-ratio: 5/3.6;
+    width: 100%;
+    align-self: center;
+    border-right: 1px solid var(--hair);
+    border-bottom: 0;
+  }
+  .featured-row .feat .body {
+    padding: 44px 44px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+  }
+  .featured-row .feat h2 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .featured-row .feat h2 em { font-style: italic; color: var(--green); }
+  .featured-row .feat .recommended {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    align-self: flex-start;
+  }
+  .featured-row .feat .recommended::before { content: ""; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+  .featured-row .feat p { font-size: 15.5px; color: var(--body); line-height: 1.55; }
+  .featured-row .feat .changes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--hair);
+  }
+  .featured-row .feat .changes .item {
+    font-size: 13px;
+    color: var(--body);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .featured-row .feat .changes .item::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--green);
+    font-family: var(--mono);
+    font-weight: 600;
+  }
+  .featured-row .feat .palette { display: flex; gap: 6px; margin-top: 6px; }
+  .featured-row .feat .palette .sw {
+    width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--hair);
+  }
+  .featured-row .feat .open {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 8px;
+    transition: background .2s;
+    align-self: flex-start;
+    gap: 18px;
+  }
+  .featured-row .feat .open:hover { background: var(--green); }
+
+  .originals-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--hair);
+    margin-bottom: 28px;
+    gap: 24px;
+  }
+  .originals-header h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .originals-header p {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    max-width: 520px;
+    text-align: right;
+  }
+
   .directions {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
   }
   .dir {
     background: #fff;
@@ -365,6 +494,12 @@
     .head { grid-template-columns: 1fr; }
     .head-meta { text-align: left; }
     .wrap { padding: 0 24px; }
+    .featured-row .feat { grid-template-columns: 1fr; }
+    .featured-row .feat .preview { border-right: none; border-bottom: 1px solid var(--hair); aspect-ratio: 5/3.2; }
+    .featured-row .feat h2 { font-size: 38px; }
+    .featured-row .feat .changes { grid-template-columns: 1fr; }
+    .originals-header { flex-direction: column; align-items: flex-start; }
+    .originals-header p { text-align: left; }
   }
 </style>
 </head>
@@ -379,7 +514,7 @@
     </div>
     <div class="meta-right">
       <span>Edgewood Surgical Hospital</span>
-      <span>Round 01</span>
+      <span>Round 02 · Post-feedback</span>
       <span class="live">Live</span>
     </div>
   </div>
@@ -389,15 +524,66 @@
   <div class="head">
     <div class="head-left">
       <img class="logo" src="assets/edgewood-logo.png" alt="Edgewood Surgical Hospital">
-      <h1>Three home page<br>directions, <em>side by side.</em></h1>
-      <p class="sub">Each is a full long-scroll home page built around your intake form: the same content architecture, three distinct aesthetics. Click into any one to scroll through the full design.</p>
+      <h1>One refined direction,<br><em>three originals</em> for reference.</h1>
+      <p class="sub">Based on your notes — Starting Point as the directional theme, Modern Trust as #2, and the desire for “something in between” — we’ve produced a refined home page that leads with the Quiet Editorial aesthetic, tightens the layout so you see more at once, and adopts the section treatments you called out from the other rounds.</p>
     </div>
     <div class="head-meta">
       <strong>Client</strong> · Edgewood Surgical Hospital<br>
-      <strong>Round</strong> · 01 · Concept exploration<br>
+      <strong>Round</strong> · 02 · Refined direction<br>
       <strong>Format</strong> · Desktop long-scroll<br>
       <strong>Date</strong> · May 2026
     </div>
+  </div>
+
+  <!-- Refined: hero featured card -->
+  <div class="featured-row">
+    <a class="feat" href="04 Refined.html">
+      <div class="preview d1">
+        <div class="strip"></div>
+        <div class="nav-row">
+          <div class="logo"></div>
+          <div class="links"><span></span><span></span><span></span><span></span></div>
+          <div class="cta"></div>
+        </div>
+        <div class="body-d1">
+          <div class="h-text">
+            <div class="meta"></div>
+            <div class="line"></div>
+            <div class="line italic short"></div>
+            <div class="lede s"></div>
+            <div class="lede t"></div>
+          </div>
+          <div class="photo"></div>
+        </div>
+      </div>
+      <div class="body">
+        <span class="recommended">Round 02 · Refined direction</span>
+        <h2>Refined.<br><em>Editorial &times; Trust.</em></h2>
+        <p>Starting Point’s palette and typography — clean, medical, sophisticated — with the layout tightened so more is visible at once, and the strongest section treatments from Modern Trust pulled in.</p>
+        <div class="changes">
+          <span class="item">Compact horizontal stats bar (from Modern Trust)</span>
+          <span class="item">“What we are known for” title</span>
+          <span class="item">“In their own words” testimonials w/ rating chip</span>
+          <span class="item">“Insurances we accept” w/ verify-by-phone card</span>
+          <span class="item">4-up specialties grid (was 3-up)</span>
+          <span class="item">Tighter section padding throughout</span>
+          <span class="item">Editorial type kept (Source Serif + Geist)</span>
+          <span class="item">“Caring home, not traditional hospital” retained</span>
+        </div>
+        <div class="palette">
+          <span class="sw" style="background:#FAFAF7"></span>
+          <span class="sw" style="background:#14140F"></span>
+          <span class="sw" style="background:#1B6E3F"></span>
+          <span class="sw" style="background:#F2EFE7"></span>
+        </div>
+        <span class="open"><span>Open the refined home page</span><span>→</span></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="originals-header">
+    <h3>The three originals you reviewed</h3>
+    <p>For reference · Round 01 directions · Starting Point (“Quiet Editorial”) was the team’s pick</p>
   </div>
 
   <div class="directions">
@@ -423,9 +609,9 @@
         </div>
       </div>
       <div class="body">
-        <span class="label">Direction 01 · Recommended starting point</span>
+        <span class="label">Round 01 · The team’s pick — directional theme</span>
         <h2>Quiet <em>Editorial</em></h2>
-        <p>Warm white, ink, a single restrained green accent. Generous whitespace, editorial type hierarchy, and quiet authority. Closest in feel to archorthospine, but more elevated. The safest, most credibility-forward pick.</p>
+        <p><strong style="color:var(--ink);font-weight:500;">“Clean, medical-looking, sophisticated.”</strong> Warm white, ink, restrained green accent. Editorial type hierarchy and quiet authority. The base for the refined direction above.</p>
         <div class="palette">
           <span class="sw" style="background:#FAFAF7"></span>
           <span class="sw" style="background:#14140F"></span>
@@ -459,9 +645,9 @@
         </div>
       </div>
       <div class="body">
-        <span class="label">Direction 02 · Brand-forward / Confident</span>
+        <span class="label">Round 01 · #2 pick — sections borrowed above</span>
         <h2>Modern <em>Trust</em></h2>
-        <p>Bright white with your brand green as a true protagonist, not just an accent. Confident geometric sans, split hero with a green panel, clean color-blocking throughout. Reads as modern, clinical-precise, and unmistakably Edgewood. The most overtly on-brand of the three.</p>
+        <p><strong style="color:var(--ink);font-weight:500;">“Too complicated” — but you loved the sections.</strong> The “In their own words,” “What we are known for,” and “Insurances” treatments from this round live on in the refined version above.</p>
         <div class="palette">
           <span class="sw" style="background:#FFFFFF"></span>
           <span class="sw" style="background:#1B6E3F"></span>
@@ -495,9 +681,9 @@
         <div class="marquee">✦ lowest infection rates · private rooms · since 2001 ✦</div>
       </div>
       <div class="body">
-        <span class="label">Direction 03 · Modern + warm</span>
+        <span class="label">Round 01 · Most design-forward</span>
         <h2>Modern <em>Sage</em></h2>
-        <p>Cream, warm brown, sage derived from your logo green. Asymmetric magazine-style layout, bold modern display type, italic accents. Feels like "a caring home" with character. Most design-forward of the three.</p>
+        <p>Cream, warm brown, sage derived from your logo green. Bold modern display type, italic accents, magazine-style layout. Not chosen as a direction, but kept here for reference.</p>
         <div class="palette">
           <span class="sw" style="background:#EEE7D5"></span>
           <span class="sw" style="background:#2A2520"></span>
@@ -512,11 +698,11 @@
 
   <div class="footer-note">
     <div>
-      <h3>How to use this</h3>
-      <p>Each direction is a complete home page. All three share the same content blocks (hero → featured specialties → other specialties → difference → testimonials → insurances → locations → closer → footer) so you can compare apples-to-apples. Photography is placeholder-stripe + caption; drop in real shots and the design holds.</p></p>
+      <h3>What changed, and why</h3>
+      <p>Per your notes, the refined direction takes <strong style="color:var(--ink);font-weight:500;">Starting Point as the base</strong> — clean, sophisticated, medical, with the typography you preferred — and adopts the layout principle that smaller sections (more visible at once) read better. The section names and a handful of layout patterns from <strong style="color:var(--ink);font-weight:500;">Modern Trust</strong> are grafted in: “In their own words,” “What we are known for,” a horizontal stats bar, and the insurances-with-verify-card pattern. We dialed back Modern Trust’s complexity — no green hero panel, no heavy color-blocking — to keep the editorial restraint of Starting Point intact.</p>
     </div>
     <div class="right">
-      Placeholders to swap<br>
+      Still to swap in<br>
       <strong>Phone</strong> · (XXX) XXX-XXXX<br>
       <strong>Photography</strong> · 6–8 facility/patient shots<br>
       <strong>Real testimonials</strong> · Currently illustrative<br>

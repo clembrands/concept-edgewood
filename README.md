@@ -1,16 +1,19 @@
 # Edgewood Surgical · Home Page Concepts
 
-Client portal presenting three home page design directions for **Edgewood Surgical Hospital**, prepared by Clem. (Round 01, Concept Exploration).
+Client portal presenting home page design directions for **Edgewood Surgical Hospital**, prepared by Clem.
+
+**Round 02 — Refined Direction:** leads with one refined home page (a blend of Editorial × Trust), with the three Round 01 originals kept below for reference.
 
 Static HTML — no build step, no dependencies. Open `index.html` to view the portal, or visit the hosted version.
 
 ## Contents
 
-- `index.html` — portal landing page with side-by-side previews of all three directions
-- `01 Quiet Editorial.html` — Direction 01 · warm white, ink, restrained green
-- `02 Modern Trust.html` — Direction 02 · brand green as protagonist
-- `03 Modern Sage.html` — Direction 03 · cream, warm brown, sage
-- `assets/` — Clem. and Edgewood logos
+- `index.html` — portal landing page with previews of all directions
+- `04 Refined.html` — Refined direction · Editorial × Trust blend (Round 02 recommendation)
+- `01 Quiet Editorial.html` — Round 01 · warm white, ink, restrained green
+- `02 Modern Trust.html` — Round 01 · brand green as protagonist
+- `03 Modern Sage.html` — Round 01 · cream, warm brown, sage
+- `assets/` — logos plus facility / cardiology / spine / map photography
 
 ## Local preview
 
